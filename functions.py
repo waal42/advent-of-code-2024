@@ -36,7 +36,12 @@ def blocks_of_lines(filename):
 
 def tuples(filename):
     with open(filename, "r", encoding="utf-8") as file_in:
-        return [tuple.split() for tuple in file_in.read().split("\n")]
+        return [tuple(map(int, line.split())) for line in file_in.readlines()]
+    
+def columns(filename):
+    with open(filename, "r", encoding="utf-8") as file_in:
+        data = [[int(x) for x in line.split()] for line in file_in.readlines()]
+        return list(map(list, zip(*data)))
 
 
 def comma_separated_ranges(filename):
