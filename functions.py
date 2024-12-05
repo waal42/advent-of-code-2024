@@ -29,9 +29,11 @@ def lines_of_numbers(filename, separator=" "):
         return [[int(num) for num in line.split(separator)] for line in file_in.read().splitlines()]
 
 
-def blocks_of_lines(filename):
-    with open(filename, "r", encoding="utf-8") as file_in:
-        return [line.split("\n") for line in file_in.read().split("\n\n")]
+def blocks_of_lines(file_name):
+    """Read a file into blocks of lines."""
+    with open(file_name, "r", encoding="utf-8") as file_in:
+        content = file_in.read().strip()
+    return [block.splitlines() for block in content.split("\n\n")]
 
 
 def tuples(filename):
