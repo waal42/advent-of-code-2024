@@ -24,9 +24,9 @@ def lines(filename):
     with open(filename, "r", encoding="utf-8") as file_in:
         return list(file_in.read().split("\n"))
     
-def lines_of_numbers(filename, separator):
+def lines_of_numbers(filename, separator=" "):
     with open(filename, "r", encoding="utf-8") as file_in:
-        return list([[int(y) for y in x.split(separator)] for x in file_in.read().split("\n")])
+        return [[int(num) for num in line.split(separator)] for line in file_in.read().splitlines()]
 
 
 def blocks_of_lines(filename):

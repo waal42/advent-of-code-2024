@@ -1,4 +1,4 @@
-from functions import custom_separated_line, lines, timer
+from functions import lines, timer
 import re
 
 
